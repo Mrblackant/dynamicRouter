@@ -1,7 +1,7 @@
 import router from './router'
-import { Message } from 'element-ui'
+// import { Message } from 'element-ui'
 import axios from 'axios'
-const _import = require('./router/_import_' + process.env.NODE_ENV)
+const _import = require('./router/_import_' + process.env.NODE_ENV)//获取组件的方法
 import Layout from '@/views/layout' //Layout 是架构组件，不在后台返回，在文件里单独引入
 
 
