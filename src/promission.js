@@ -73,10 +73,12 @@ let fakeRouter = {
 
 }
 router.beforeEach((to, from, next) => {
+  console.log(getRouter)
   if (!getRouter) { //不加这个判断，路由会陷入死循环
     if (!getObjArr('router')) {
       // easy-mock官网经常挂掉，所以就不请求了,你们可以替换成自己公司的接口去请求,把下方的axios请求打开即可
       // axios.get('https://www.easy-mock.com/mock/5a5da330d9b48c260cb42ca8/example/antrouter').then(res => {
+      console.log('beforeEach  getRouter')
       getRouter = fakeRouter.router //假装模拟后台请求得到的路由数据
       saveObjArr('router', getRouter) //存储路由到localStorage
 
@@ -84,6 +86,7 @@ router.beforeEach((to, from, next) => {
       // })
     } else { //从localStorage拿到了路由
       getRouter = getObjArr('router') //拿到路由
+      console.log(getRouter)
       routerGo(to, next)
     }
   } else {
